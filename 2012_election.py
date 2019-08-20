@@ -1,17 +1,17 @@
-#%%
-# Election Data - Polls and Donors
+#%% [markdown]
+# #Election Data - Polls and Donors
 
-## In this data project we will be looking at data from the 2012 presidential election.
-## First dataset will be the results of aggregated political poll data.
-## Second dataset will be the donor data for candidates.
+# In this data project we will be looking at data from the 2012 presidential election.
+# First dataset will be the results of aggregated political poll data.
+# Second dataset will be the donor data for candidates.
 
 '''
-1) Who was being polled and what was their party affiliation?
-2) Did the poll results favor Romney or Obama?
-3) How did undecided voters affect the polls?
-4) Can we account for the undecided voters?
-5) How did voter sentiment change over time?
-6) Can we see an affect in the polls from the debates?
+- Who was being polled and what was their party affiliation?
+- Did the poll results favor Romney or Obama?
+- How did undecided voters affect the polls?
+- Can we account for the undecided voters?
+- How did voter sentiment change over time?
+- Can we see an affect in the polls from the debates?
 '''
 
 #%%
@@ -21,10 +21,10 @@ import numpy as np
 import matplotlib.pyplot as plt 
 import plotly
 import plotly.graph_objs as go
-import plotly.offline as pyo
-pyo.init_notebook_mode()
+from plotly.offline import iplot, init_notebook_mode
 import seaborn as sns
 sns.set_style('whitegrid')
+init_notebook_mode(connected=True)
 
 #%%
 # The data for the poll will be obtained from HuffPost Pollster.
@@ -137,13 +137,13 @@ plt.axvline(x=325+21, linewidth=4, color='grey')
 
 
 
-#%%
+#%% [markdown]
 '''
-1) How much was donated and what was the average donation?
-2) How did the donations differ between candidates?
-3) How did the donations differ betwen Democrats and Republicans?
-4) What are the demographics of the donors?
-5) Is there a pattern in donation amounts?
+- How much was donated and what was the average donation?
+- How did the donations differ between candidates?
+- How did the donations differ betwen Democrats and Republicans?
+- What are the demographics of the donors?
+- Is there a pattern in donation amounts?
 '''
 
 #%%
@@ -252,7 +252,7 @@ def plot_bar(df, xaxis_title, yaxis_title, chart_title):
                         yaxis={'title':yaxis_title})
 
     fig = go.Figure(data=[trace], layout=layout)
-    pyo.iplot(fig, filename=f'{df}')
+    iplot(fig, filename=f'{df}')
 
 #%%
 # Count number of donations to each candidate
